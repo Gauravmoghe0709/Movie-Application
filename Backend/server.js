@@ -1,13 +1,8 @@
-require('dotenv').config();
-const app = require('./src/app');
-const connecttodb = require('./src/database/movie.database');
+require("dotenv").config();
 const path = require("path");
 
-
-connecttodb();
-app.listen(3000,()=>{
-    console.log("Server is running on port 3000");
-})
+const app = require("./src/app");
+const connecttodb = require("./src/database/movie.database");
 
 app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
@@ -17,4 +12,9 @@ app.get("*", (req, res) => {
   );
 });
 
+connecttodb();
 
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Server running on port", PORT);
+});
