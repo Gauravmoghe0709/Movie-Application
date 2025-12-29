@@ -1,10 +1,11 @@
 require("dotenv").config();
 const path = require("path");
+const express = require("express");
 
 const app = require("./src/app");
 const connecttodb = require("./src/database/movie.database");
 
-// Serve frontend build
+
 app.use(express.static(path.join(__dirname, "../Frontend/dist")));
 
 app.get("*", (req, res) => {
@@ -13,7 +14,6 @@ app.get("*", (req, res) => {
   );
 });
 
-// DB + server
 connecttodb();
 
 const PORT = process.env.PORT || 3000;
