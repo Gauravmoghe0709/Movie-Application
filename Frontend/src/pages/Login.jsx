@@ -14,7 +14,7 @@ const Login = () => {
    const handleform = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/user/login",{
+      const res = await axios.post("https://movie-application-vha9.onrender.com/user/login",{
         email: email,
         password: password, 
       },{withCredentials:true});

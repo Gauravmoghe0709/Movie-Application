@@ -44,7 +44,7 @@ export default function Home() {
             }
             const [by, order] = val.split("_")
             try{
-              const res = await axios.get('http://localhost:3000/movies/sortedmovie', { params: { by, order }, withCredentials: true })
+              const res = await axios.get('https://movie-application-vha9.onrender.com/movies/sortedmovie', { params: { by, order }, withCredentials: true })
               const data = res.data
               if(data.sortedmovies){
                 setmovie(data.sortedmovies)
@@ -82,7 +82,7 @@ export default function Home() {
                 className="bg-white/10 rounded-xl overflow-hidden shadow-lg hover:scale-[1.02] transition"
               >
                 <img
-                  src={(m.poster && m.poster.startsWith && m.poster.startsWith('/')) ? `http://localhost:3000${m.poster}` : m.poster}
+                  src={(m.poster && m.poster.startsWith && m.poster.startsWith('/')) ? `https://movie-application-vha9.onrender.com${m.poster}` : m.poster}
                   alt={m.name}
                   className="h-100 w-full object-cover"
                 />

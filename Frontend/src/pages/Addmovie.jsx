@@ -22,7 +22,7 @@ const Addmovie = () => {
     e.preventDefault();
     setBusy(true);
     try {
-      const { data } = await axios.post('http://localhost:3000/movies/addmovies' ,form, { withCredentials: true })
+      const { data } = await axios.post('https://movie-application-vha9.onrender.com/movies/addmovies' ,form, { withCredentials: true })
       console.log(data)
       navigate("/Admindashboard")
     } catch (err) {
@@ -38,7 +38,7 @@ const Addmovie = () => {
     const fd = new FormData()
     fd.append('image', file)
     try {
-      const res = await axios.post('http://localhost:3000/movies/upload', fd, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
+      const res = await axios.post('https://movie-application-vha9.onrender.com/movies/upload', fd, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
       const fileUrl = res.data.fileUrl
       setForm(prev => ({ ...prev, poster: fileUrl }))
     } catch (err) {

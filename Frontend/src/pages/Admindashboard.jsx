@@ -16,7 +16,7 @@ const Admindashboard = () => {
    const handleDelete = async (id) => {
      if (!confirm('Delete this movie?')) return
      try {
-       await axios.delete(`http://localhost:3000/movies/deletemovie/${id}`, { withCredentials: true })
+       await axios.delete(`https://movie-application-vha9.onrender.com/movies/deletemovie/${id}`, { withCredentials: true })
        refresh()
      } catch (err) {
        console.error('delete failed', err)
@@ -60,7 +60,7 @@ const Admindashboard = () => {
                   </div>
                 )}
                 <img
-                  src={m.poster ? `http://localhost:3000${m.poster}` : "../../images/image1.jpg"}
+                  src={m.poster ? `https://movie-application-vha9.onrender.com${m.poster}` : "../../images/image1.jpg"}
                   alt={m.name}
                   className="h-100 w-full object-cover"
                 />

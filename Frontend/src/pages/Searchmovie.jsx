@@ -22,7 +22,7 @@ const Searchmovie = () => {
       }
 
       const res = await axios.get(
-        `http://localhost:3000/movies/searchmovie/search?query=${query}`,
+        `https://movie-application-vha9.onrender.com/movies/searchmovie/search?query=${query}`,
         { withCredentials: true }
       );
 
@@ -92,7 +92,7 @@ const Searchmovie = () => {
               >
                 <div className="w-full sm:w-44 md:w-56 shrink-0 rounded-md overflow-hidden bg-gray-900">
                   <img
-                    src={(m.poster && m.poster.startsWith && m.poster.startsWith('/')) ? `http://localhost:3000${m.poster}` : m.poster}
+                    src={(m.poster && m.poster.startsWith && m.poster.startsWith('/')) ? `https://movie-application-vha9.onrender.com${m.poster}` : m.poster}
                     alt={m.name}
                     className="w-full h-full sm:h-full object-cover"
                   />

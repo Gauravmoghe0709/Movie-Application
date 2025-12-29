@@ -22,7 +22,7 @@ const Editmovie = () => {
      e.preventDefault();
      setBusy(true);
      try {
-      const { data } = await axios.put(`http://localhost:3000/movies/updatemovie/${id}`, form, { withCredentials: true })
+      const { data } = await axios.put(`https://movie-application-vha9.onrender.com/movies/updatemovie/${id}`, form, { withCredentials: true })
        console.log(data)
        navigate("/Admindashboard")
      } catch (err) {
@@ -38,7 +38,7 @@ const Editmovie = () => {
      const fd = new FormData()
      fd.append('image', file)
      try {
-       const res = await axios.post('http://localhost:3000/movies/upload', fd, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
+       const res = await axios.post('https://movie-application-vha9.onrender.com/movies/upload', fd, { withCredentials: true, headers: { 'Content-Type': 'multipart/form-data' } })
        const fileUrl = res.data.fileUrl
        setForm(prev => ({ ...prev, poster: fileUrl }))
      } catch (err) {
@@ -52,7 +52,7 @@ const Editmovie = () => {
     if (!id) return;
     const load = async () => {
       try {
-        const res = await axios.get(`http://localhost:3000/movies/${id}`, { withCredentials: true })
+        const res = await axios.get(`https://movie-application-vha9.onrender.com/movies/${id}`, { withCredentials: true })
         const movie = res.data.movie
         if (movie) {
           setForm({
@@ -94,7 +94,7 @@ const Editmovie = () => {
             <label className="text-sm text-gray-300">Poster Image</label>
             <input type="file" accept="image/*" onChange={handleFile} className="w-full border-2 rounded-2xl border-gray-500 px-5" />
             {form.poster && (
-              <img src={(form.poster.startsWith && form.poster.startsWith('/')) ? `http://localhost:3000${form.poster}` : form.poster} alt="poster" className="mt-2 max-h-40 object-contain" />
+              <img src={(form.poster.startsWith && form.poster.startsWith('/')) ? `https://movie-application-vha9.onrender.com${form.poster}` : form.poster} alt="poster" className="mt-2 max-h-40 object-contain" />
             )}
           </div>
           <div className="flex justify-end">
